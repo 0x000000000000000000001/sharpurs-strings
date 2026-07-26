@@ -1,0 +1,19 @@
+package:
+  name: strings
+  dependencies:
+    - arrays
+    - control
+    - either
+    - enums
+    - foldable-traversable
+    - gen
+    - integers
+    - maybe
+    - newtype
+    - nonempty
+    - partial
+    - prelude
+    - tailrec
+    - tuples
+    - unfoldable
+    - unsafe-coerce

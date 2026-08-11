@@ -49,7 +49,7 @@ let countPrefix = fun (p: obj) -> fun (str: obj) ->
 let _indexOf = fun (just: obj) -> fun (nothing: obj) -> fun (x: obj) -> fun (s: obj) ->
     let str = unbox<string> s
     let sub = unbox<string> x
-    let idx = str.IndexOf(sub)
+    let idx = str.IndexOf(sub, StringComparison.Ordinal)
     if idx = -1 then nothing else sharpurs_apply just (box idx)
 
 let _indexOfStartingAt = fun (just: obj) -> fun (nothing: obj) -> fun (x: obj) -> fun (startIdx: obj) -> fun (str: obj) ->
@@ -58,13 +58,13 @@ let _indexOfStartingAt = fun (just: obj) -> fun (nothing: obj) -> fun (x: obj) -
     let start = unbox<int> startIdx
     if start < 0 || start > s.Length then nothing
     else
-        let idx = s.IndexOf(sub, start)
+        let idx = s.IndexOf(sub, start, StringComparison.Ordinal)
         if idx = -1 then nothing else sharpurs_apply just (box idx)
 
 let _lastIndexOf = fun (just: obj) -> fun (nothing: obj) -> fun (x: obj) -> fun (s: obj) ->
     let str = unbox<string> s
     let sub = unbox<string> x
-    let idx = str.LastIndexOf(sub)
+    let idx = str.LastIndexOf(sub, StringComparison.Ordinal)
     if idx = -1 then nothing else sharpurs_apply just (box idx)
 
 let _lastIndexOfStartingAt = fun (just: obj) -> fun (nothing: obj) -> fun (x: obj) -> fun (startIdx: obj) -> fun (str: obj) ->
@@ -73,7 +73,7 @@ let _lastIndexOfStartingAt = fun (just: obj) -> fun (nothing: obj) -> fun (x: ob
     let start = unbox<int> startIdx
     let safeStart = max 0 (min s.Length start)
     let endIdx = min s.Length (safeStart + sub.Length)
-    let idx = s.Substring(0, endIdx).LastIndexOf(sub)
+    let idx = s.Substring(0, endIdx).LastIndexOf(sub, StringComparison.Ordinal)
     if idx = -1 then nothing else sharpurs_apply just (box idx)
 
 let take = fun (idx: obj) -> fun (str: obj) ->

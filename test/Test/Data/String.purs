@@ -100,6 +100,7 @@ testString = do
     , expected: ["abc"]
     }
 
+  log "split DONE"
   log "toLower"
   assertEqual
     { actual: S.toLower "bAtMaN"

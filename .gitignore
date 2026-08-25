@@ -4,7 +4,8 @@
 !/.github/
 /bower_components/
 /node_modules/
-/output/
+output/
+output.bak/
 package-lock.json
 .DS_Store
 .psc-ide-port
